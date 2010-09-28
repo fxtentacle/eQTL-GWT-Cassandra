@@ -15,7 +15,26 @@ INSERT YOUR MARKER DATA HERE
 	tmp.put(10.6, 789); // centimorgan 10.6 mappes to basepair 789
 
 
+nginx-0.7.65
+conf/nginx.conf
+
+
+apache-cassandra-0.5.1-src
 cassandra on 127.0.0.1", 9160
+
+conf/storage-conf.xml
+
+
+jetty-6.1.22
+
+webapps/war/
+
+export R_HOME=/Library/Frameworks/R.framework/Resources
+export JAVA_OPTIONS=" -ea -d32 -Xms128M -Xmx2G  -Djava.library.path=/Volumes/Important/fxtentacle/Library/R/2.10/library/rJava/jri: "
+sh bin/jetty.sh run
+
+contexts/hajo.xml
+
 
 modify src/hibernate.cfg.xml
 USERNAME PASSWORD
