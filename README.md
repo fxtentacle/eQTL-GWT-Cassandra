@@ -14,7 +14,6 @@ You will need:
 - ports 8080 and 9160 mandatory accessible peer-to-peer between nodes
 - ports 7000 and 7001 optionally accessible peer-to-peer between nodes (think huge performance benefit)
 
-
 # Compiling
 
 First, you will need to create the folder 
@@ -58,9 +57,7 @@ If you do not wish to use centimorgan to basepair conversions, simply remove the
 
 Now you can compile the source code using Google Web Toolkit 2.0.3, which will fill the war folder with the compiled web application including server-side components.
 
-
 # Installation
-
 ## Jetty
 
 Download Jetty 6.1.22 and extract.
@@ -76,7 +73,6 @@ If you would like to use the integrated R shell, start Jetty like this:
 	export JAVA_OPTIONS=" -ea -d32 -Xms128M -Xmx2G  -Djava.library.path=/path/to/R/library/rJava/jri: "
 	sh bin/jetty.sh run
 
-
 ## Apache Cassandra
 
 Download Apache Cassandra 0.5.1 and extract.
@@ -87,7 +83,6 @@ Copy the example storage-conf.xml to conf/storage-conf.xml and modify the Seeds 
 		<Seed>IP HERE</Seed>
 		<Seed>ANOTHER IP HERE</Seed>
 	</Seeds>
-
 
 ## Load balancer
 
@@ -103,7 +98,6 @@ Then replace conf/nginx.conf with the example nginx.conf from deployment_helpers
 	      server   192.168.1.85:8080;
 	}
 
-
 # Adding a new node
 
 You might have noticed that Jetty needs no IP set-up and Cassandra needs only a generic set of seeding IPs which can be the same for all nodes. That is intentional :)
@@ -113,7 +107,6 @@ Setting up a new node is as easy as copying the Jetty and the Cassandra folders 
 After that, you will need to add the new node's IP to the load balancer and that's it!
 
 (If you use nginx, simply edit the nginx.conf and add the new IP to the "upstream mysite" section. No restart required.)
-
 
 # License
 
