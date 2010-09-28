@@ -62,7 +62,7 @@ If you do not wish to use centimorgan to basepair conversions, simply remove the
 
 Now you can compile the source code using Google Web Toolkit 2.0.3, which will fill the war folder with the compiled web application including server-side components.
 
-# Installation
+# Deployment
 ## Jetty
 
 Download Jetty 6.1.22 and extract.
