@@ -7,9 +7,12 @@ The key problems addressed are secure and failure-resistant storage of huge data
 # Preparation
 
 You will need:
-- one shared PostgreSQL 8.4 server for management data
+- Java 1.6
+- Google Web Toolkit 2.0.3 (for compiling)
+- shared PostgreSQL 8.4 server for management data
 - one static IP address for every node
-- ports 8080 and 9160 mandatory ports 7000 and 7001 optionally accessible peer-to-peer between nodes
+- ports 8080 and 9160 mandatory accessible peer-to-peer between nodes
+- ports 7000 and 7001 optionally accessible peer-to-peer between nodes (think huge performance benefit)
 
 
 # Compiling
@@ -38,19 +41,12 @@ and place the following jar files into it:
 
 Next, modify 
 	src/hibernate.cfg.xml
-and replace the USERNAME and PASSWORD placeholders with the username and password for your PostgreSQL database server.
+and replace the USERNAME and PASSWORD placeholders with the username and password for your shared PostgreSQL database server.
 
+Third, modify
+	src/de/uni_luebeck/inb/krabbenhoeft/eQTL/server/processors/ConvertCMorganToBPProcessor_MMus.java
 
-
-This git repository will soon contain the source code for my bachelor thesis:
-Interactive presentation of expression Quantitative Trait Loci
-
-
-src/de/uni_luebeck/inb/krabbenhoeft/eQTL/server/processors/ConvertCMorganToBPProcessor_MMus.java
-
-insert centimorgan to basepair mapping tables
-
-INSERT YOUR MARKER DATA HERE
+*Optional:* Replace "INSERT YOUR MARKER DATA HERE" with your centimorgan to basepair mapping tables in the following format:
 
 	tmp = new HashMap<Double, Integer>();
 	map.put("1", tmp); // chromosome 1
@@ -58,46 +54,71 @@ INSERT YOUR MARKER DATA HERE
 	tmp.put(3.0, 456); // centimorgan 3.0 mappes to basepair 456
 	tmp.put(10.6, 789); // centimorgan 10.6 mappes to basepair 789
 
+If you do not wish to use centimorgan to basepair conversions, simply remove the "INSERT YOUR MARKER DATA HERE" line.
 
-nginx-0.7.65
-conf/nginx.conf
-
-upstream  mysite  {
-      server   192.168.1.80:8080;
-      server   192.168.1.81:8080;
-      server   192.168.1.85:8080;
-  }
+Now you can compile the source code using Google Web Toolkit 2.0.3, which will fill the war folder with the compiled web application including server-side components.
 
 
-apache-cassandra-0.5.1-src
-cassandra on 127.0.0.1", 9160
+# Installation
 
-conf/storage-conf.xml
-<Seeds>
-    <Seed>192.168.1.81</Seed>
-</Seeds>
+## Jetty
 
+Download Jetty 6.1.22 and extract.
 
-jetty-6.1.22
+Replace all contents of the webapps/war folder with the war folder you created during compilation.
 
-webapps/war/
+Copy the hajo.xml file from deployment_helpers to contexts/hajo.xml
 
-export R_HOME=/Library/Frameworks/R.framework/Resources
-export JAVA_OPTIONS=" -ea -d32 -Xms128M -Xmx2G  -Djava.library.path=/Volumes/Important/fxtentacle/Library/R/2.10/library/rJava/jri: "
-sh bin/jetty.sh run
+Start Jetty :)
 
-contexts/hajo.xml
+If you would like to use the integrated R shell, start Jetty like this:
+	export R_HOME=/path/to/R
+	export JAVA_OPTIONS=" -ea -d32 -Xms128M -Xmx2G  -Djava.library.path=/path/to/R/library/rJava/jri: "
+	sh bin/jetty.sh run
 
 
-Required JARs:
+## Apache Cassandra
+
+Download Apache Cassandra 0.5.1 and extract.
+
+Copy the example storage-conf.xml to conf/storage-conf.xml and modify the Seeds section. You should list the IP addresses of some nodes here. While Apache Cassandra nodes can communicate and find each other using a peer-to-peer gossip protocol, at least one IP is needed such that the newly starting node knows which cluster it belongs to.
+
+	<Seeds>
+		<Seed>IP HERE</Seed>
+		<Seed>ANOTHER IP HERE</Seed>
+	</Seeds>
 
 
-License:
+## Load balancer
 
-gen-java folder:
-Apache License 2.0
+Every load balancer should do. Just point it at port 8080 on each node, since that is where the Jetty server is running.
+
+During development, nginx 0.7.65 was used for testing. Once again, downlaod and extract.
+
+Then replace conf/nginx.conf with the example nginx.conf from deployment_helpers. You will need to edit the following section to list all node IP addresses:
+
+	upstream  mysite  {
+	      server   192.168.1.80:8080;
+	      server   192.168.1.81:8080;
+	      server   192.168.1.85:8080;
+	}
+
+
+# Adding a new node
+
+You might have noticed that Jetty needs no IP set-up and Cassandra needs only a generic set of seeding IPs which can be the same for all nodes. That is intentional :)
+
+Setting up a new node is as easy as copying the Jetty and the Cassandra folders from one existing node and starting both. 
+
+After that, you will need to add the new node's IP to the load balancer and that's it!
+
+(If you use nginx, simply edit the nginx.conf and add the new IP to the "upstream mysite" section. No restart required.)
+
+
+# License
+
+The generated Thrift interfaces in the gen-java folder are licensed under Apache License 2.0.
 http://www.apache.org/licenses/LICENSE-2.0
 
-src folder:
-GNU Lesser General Public License 3.0
+The source code written by Hajo Nils Krabbenhöft is licensed under GNU Lesser General Public License 3.0.
 http://www.gnu.org/licenses/lgpl-3.0.html
