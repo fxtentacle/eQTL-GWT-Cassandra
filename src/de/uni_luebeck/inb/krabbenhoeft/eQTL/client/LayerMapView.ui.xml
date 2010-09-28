@@ -1,0 +1,25 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:s="urn:import:de.uni_luebeck.inb.krabbenhoeft.eQTL.client.scroller">
+	<g:LayoutPanel styleName="layerGaugeView" ui:field="layout">
+		<g:layer top="0px" height="35px">
+			<g:FlowPanel styleName="chromosome-selection">
+				<g:Label styleName="inline">Display </g:Label>
+				<g:ListBox ui:field="chromosome" />
+				<g:Label styleName="inline"> using </g:Label>
+				<g:ListBox ui:field="positionColumnX" />
+				<g:Label styleName="inline"> and </g:Label>
+				<g:ListBox ui:field="positionColumnY" />
+				<g:Label styleName="inline"> as the positions.</g:Label>
+			</g:FlowPanel>
+		</g:layer>
+		<g:layer top="35px" left="120px" height="120px" right="0px">
+			<s:GenomeDisplayScroller ui:field="scrollerX" />
+		</g:layer>
+		<g:layer top="155px" left="0px" bottom="0px" width="120px">
+			<s:GenomeDisplayScroller ui:field="scrollerY" />
+		</g:layer>
+		<g:layer top="155px" left="120px" right="0px" bottom="0px">
+			<s:GenomeDisplayScroller2D ui:field="contents" />
+		</g:layer>
+	</g:LayoutPanel>
+</ui:UiBinder>   

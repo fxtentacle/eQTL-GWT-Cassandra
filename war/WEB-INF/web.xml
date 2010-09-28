@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+	<servlet>
+		<servlet-name>DataRetrieval</servlet-name>
+		<servlet-class>de.uni_luebeck.inb.krabbenhoeft.eQTL.server.DataRetrievalService</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>DataProcessing</servlet-name>
+		<servlet-class>de.uni_luebeck.inb.krabbenhoeft.eQTL.server.DataProcessingService</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>DataProcessingInternal</servlet-name>
+		<servlet-class>de.uni_luebeck.inb.krabbenhoeft.eQTL.server.DataProcessingInternalServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>FetchDasTrack</servlet-name>
+		<servlet-class>de.uni_luebeck.inb.krabbenhoeft.eQTL.server.FetchDasTrackService</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>Restlet</servlet-name>
+		<servlet-class>de.uni_luebeck.inb.krabbenhoeft.eQTL.server.helpers.restlet.HajosRestletServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ProcessWithR</servlet-name>
+		<servlet-class>de.uni_luebeck.inb.krabbenhoeft.eQTL.server.ProcessWithRService</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>DataRetrieval</servlet-name>
+		<url-pattern>/eqtl_appengine/retrieval</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>DataProcessing</servlet-name>
+		<url-pattern>/eqtl_appengine/processing</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>DataProcessingInternal</servlet-name>
+		<url-pattern>/data_set_processor</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FetchDasTrack</servlet-name>
+		<url-pattern>/eqtl_appengine/fetchDasTrack</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Restlet</servlet-name>
+		<url-pattern>/restlet/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ProcessWithR</servlet-name>
+		<url-pattern>/eqtl_appengine/processWithR</url-pattern>
+	</servlet-mapping>
+
+
+
+	<!-- Default page to serve -->
+	<welcome-file-list>
+		<welcome-file>EQTL_AppEngine.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>

@@ -1,0 +1,233 @@
+/** Add css rules here for your application.*/
+#messages {
+	position: absolute;
+	left: 50%;
+	top: 0px;
+	width: 400px;
+	margin-left: -200px;
+	z-index: 2000;
+}
+
+#messages DIV {
+	padding: 5px;
+	background-color: #CCC;
+}
+
+#contentDISABLED {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.tableHeader TD {
+	font-weight: bold;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #CFE3F5;
+	text-align: left;
+}
+
+.gwt-MenuBar.gwt-MenuBar-horizontal .gwt-MenuItem {
+	cursor: pointer;
+}
+
+.gwt-MenuBar.gwt-MenuBar-horizontal .gwt-MenuItem:hover {
+	color: #000000;
+}
+
+.tabButtonRow {
+	padding: 5px 5px 0px;
+	border-bottom: 2px solid #4D5864;
+}
+
+.tabButtonRow .tabButton {
+	background-color: #A6B2BF;
+	margin: 2px;
+	padding: 2px;
+	height: 22px;
+	overflow: hidden;
+}
+
+.tabButtonRow .tabButton .tabButtonInner {
+	padding: 5px;
+	background-color: #CFE3F5;
+	cursor: pointer;
+}
+
+.tabButtonRow .tabButton-selected {
+	background-color: #4D5864;
+	height: 24px;
+}
+
+.tabButtonRow .tabButton-selected .tabButtonInner {
+	background-color: #FEFEFE;
+}
+
+.tabContentsPanel {
+	background-color: #CFE3F5;
+}
+
+.dataSetLayerView .gwt-Label {
+	display: inline;
+}
+
+.layerTableView {
+	
+}
+
+.layerTableView .pagination {
+	padding: 5px;
+	text-align: right;
+}
+
+.layerTableView TABLE.dataTable {
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.GenomeDisplayScroller {
+	position: relative;
+}
+
+.GenomeDisplayScroller-contents {
+	position: absolute;
+	overflow: hidden;
+}
+
+.GenomeDisplayScroller-scrollbar {
+	background-color: #ddd;
+	position: absolute;
+	overflow: hidden;
+}
+
+.GenomeDisplayScroller-scrollbarSlider {
+	background-color: #ccc;
+	border: 1px solid black;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 13px;
+	width: 13px;
+	cursor: move;
+}
+
+.GenomeDisplayScroller-zoom {
+	background-color: white;
+	position: absolute;
+	overflow: hidden;
+}
+
+.GenomeDisplayScroller-zoom div {
+	background-color: grey;
+	width: 18px;
+}
+
+.GenomeDisplayScroller-zoom .hover {
+	background-color: #ccffcc;
+}
+
+.GenomeDisplayBlock {
+	position: absolute;
+	overflow: visible;
+}
+
+.chr-band-white {
+	position: absolute;
+	overflow: visible;
+	background-color: #ddd;
+	border-top: 2px solid #eee;
+	border-bottom: 2px solid #ccc;
+	color: black;
+	height: 21px;
+	font-size: 12px;
+	padding-top: 5px;
+	cursor: move;
+}
+
+.chr-band-grey {
+	position: absolute;
+	overflow: visible;
+	background-color: #888;
+	border-top: 2px solid #999;
+	border-bottom: 2px solid #777;
+	color: black;
+	height: 21px;
+	font-size: 12px;
+	padding-top: 5px;
+	cursor: move;
+}
+
+.chr-band-black {
+	position: absolute;
+	overflow: visible;
+	background-color: #333;
+	border-top: 2px solid #444;
+	border-bottom: 2px solid #222;
+	color: white;
+	height: 21px;
+	font-size: 12px;
+	padding-top: 5px;
+	cursor: move;
+}
+
+.chr-contig-0 {
+	position: absolute;
+	background-color: #8888ff;
+	height: 10px;
+}
+
+.chr-contig-1 {
+	position: absolute;
+	background-color: #6666ff;
+	height: 10px;
+}
+
+.chr-transcript-0 {
+	position: absolute;
+	background-color: #880000;
+	height: 10px;
+}
+
+.chr-transcript-1 {
+	position: absolute;
+	background-color: #008800;
+	height: 10px;
+}
+
+.chr-eqtl-marker {
+	position: absolute;
+	background-color: #008800;
+	height: 4px;
+}
+
+.chr-eqtl-gene {
+	position: absolute;
+	background-color: #000088;
+	height: 10px;
+}
+
+.layerGaugeView .inline {
+	display: inline-block;
+	margin: 5px;
+}
+
+.GenomeMapScrollBlock {
+	position: absolute;
+	overflow: visible;
+	width: 512px;
+	height: 512px;
+}
+
+.GenomeDisplayScroller2D {
+	cursor: move;
+}
+.map-eqtl-marker {
+	position: absolute;
+	background-color: #008800;
+	height: 4px;
+	width: 4px;
+	cursor: default;
+}
+
+
