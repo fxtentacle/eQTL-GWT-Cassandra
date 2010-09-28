@@ -7,12 +7,12 @@ The key problems addressed are secure and failure-resistant storage of huge data
 # Preparation
 
 You will need:
-- Java 1.6
-- Google Web Toolkit 2.0.3 (for compiling)
-- shared PostgreSQL 8.4 server for management data
-- one static IP address for every node
-- ports 8080 and 9160 mandatory accessible peer-to-peer between nodes
-- ports 7000 and 7001 optionally accessible peer-to-peer between nodes (think huge performance benefit)
+*	Java 1.6
+*	Google Web Toolkit 2.0.3 (for compiling)
+*	shared PostgreSQL 8.4 server for management data
+*	one static IP address for every node
+*	ports 8080 and 9160 mandatory accessible peer-to-peer between nodes
+*	ports 7000 and 7001 optionally accessible peer-to-peer between nodes (think huge performance benefit)
 
 # Compiling
 
