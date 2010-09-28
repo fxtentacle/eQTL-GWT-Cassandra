@@ -7,6 +7,7 @@ The key problems addressed are secure and failure-resistant storage of huge data
 # Preparation
 
 You will need:
+
 *	Java 1.6
 *	Google Web Toolkit 2.0.3 (for compiling)
 *	shared PostgreSQL 8.4 server for management data
