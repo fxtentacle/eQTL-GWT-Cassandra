@@ -110,8 +110,6 @@ After that, you will need to add the new node's IP to the load balancer and that
 
 # License
 
-The generated Thrift interfaces in the gen-java folder are licensed under Apache License 2.0.
-http://www.apache.org/licenses/LICENSE-2.0
+The generated Thrift interfaces in the gen-java folder are licensed under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
-The source code written by Hajo Nils Krabbenhöft is licensed under GNU Lesser General Public License 3.0.
-http://www.gnu.org/licenses/lgpl-3.0.html
+The source code written by Hajo Nils Krabbenhöft is licensed under [GNU Lesser General Public License 3.0](http://www.gnu.org/licenses/lgpl-3.0.html).
