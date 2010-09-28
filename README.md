@@ -1,8 +1,12 @@
-# Introduction
+# Abstract
 
 Medical research strives towards a better understanding of the molecular pathophysiology. Due to advancements in laboratory equipment, the number of measurements taken per probe in medical studies could be increased. This increase in observations per individual has to be accompanied by an increase in the number of individuals to account for the problem of multiple testing. The resulting data sets are huge and these technical diffi- culties require medical investigators to seek external advice. Exemplified by problems encountered in the statistical genomics of an immune mediated disease, this work takes a new approach on data presentation to aid in investigative biomedical research.
 
 The key problems addressed are secure and failure-resistant storage of huge data sets and their presentation to the researcher. To aid in the investigative work, the presentation should react to user requests promptly, preferably in real-time. These goals are achieved by capitalizing on related developments in high performance computing and distributed data storage.
+
+# Introduction
+
+This web application is using the distributed database Apache Cassandra for a highly scalable and failure-resistant data storage. The front-end is implemented using Google Web Toolkit and allows the user a dynamic browsing of his data set in table, gauge and map presentation modes. Targeted users are researchers who need to cope with large-scale expression QTL experiments where common presentation and analysis frameworks fail to provide the required interactivity for investigative research.
 
 # Preparation
 
